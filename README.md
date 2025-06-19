@@ -28,9 +28,6 @@
    - Truy vấn SQL an toàn với Eloquent.
 6. **Cơ Sở Dữ Liệu**:
    - Migrate dữ liệu lên cloud (Aiven MySQL/PostgreSQL).
-7. **Liên Kết Công Khai**:
-   - [Chèn URL sau khi triển khai]
-
 ---
 
 ## Yêu Cầu
