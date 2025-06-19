@@ -1,5 +1,11 @@
 # Ứng Dụng Quản Lý Bán Nước Ngọt - Laravel
 
+## 👤 Thông Tin Cá Nhân  
+- **Họ tên**: Nguyễn Minh Đức 
+- **Mã sinh viên**: 23010171
+- **Lớp**: CNTT_2
+- **Môn học**: Xây dựng web nâng cao (TH3)
+
 ## Tổng Quan
 Ứng dụng web này được xây dựng bằng framework **Laravel** để quản lý cửa hàng bán nước ngọt. Ứng dụng hỗ trợ xác thực người dùng, quản lý các đối tượng như *Nước Ngọt*, *Khách Hàng* và *Đơn Hàng*, cùng với các thao tác CRUD an toàn và API RESTful. Công nghệ chính bao gồm:
 - **Laravel Breeze**: Xác thực người dùng.
@@ -30,69 +36,14 @@
    - Migrate dữ liệu lên cloud (Aiven MySQL/PostgreSQL).
 ---
 
-## Yêu Cầu
-- PHP >= 8.1
-- Composer
-- Laravel >= 10.x
-- MySQL/PostgreSQL (Aiven hoặc dịch vụ cloud)
+## ⚙ Hệ thống sử dụng
+- PHP (Laravel framework)
 - Laravel Breeze
-- Laravel Sanctum
-- Node.js và NPM
-
----
-
-## Hướng Dẫn Cài Đặt
-1. **Sao chép mã nguồn**:
-   ```bash
-   git clone [repository-url]
-   cd myWebApp
-   ```
-2. **Cài đặt thư viện**:
-   ```bash
-   composer install
-   npm install
-   ```
-3. **Cấu hình môi trường**:
-   - Sao chép file `.env.example` thành `.env`:
-   ```bash
-   cp .env.example .env
-   ```
-   - Cập nhật thông tin cơ sở dữ liệu Aiven:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=<aiven_host>
-   DB_PORT=<aiven_port>
-   DB_DATABASE=<aiven_database>
-   DB_USERNAME=<aiven_username>
-   DB_PASSWORD=<aiven_password>
-   ```
-4. **Tạo khóa ứng dụng**:
-   ```bash
-   php artisan key:generate
-   ```
-5. **Chạy migration**:
-   ```bash
-   php artisan migrate
-   ```
-6. **Biên dịch tài nguyên frontend**:
-   ```bash
-   npm run dev
-   ```
-7. **Khởi động server**:
-   ```bash
-   php artisan serve
-   ```
-
----
-
-## Sử Dụng API
-- **Endpoint**: `/api/orders` (GET, POST, PUT, DELETE).
-- **Xác thực**: Sử dụng token Sanctum.
-- Ví dụ yêu cầu:
-   ```bash
-   curl -H "Authorization: Bearer <token>" http://localhost:8000/api/orders
-   ```
-
+- MySQL (Aiven Cloud)
+- Eloquent ORM (Hệ thống ORM giúp tương tác với CSDL)
+- Frontend & UI (Blade engine, Tailwind CSS, Bootstrap 5)
+- Laravel Security (Framework hỗ trợ)
+- AJAX JQuery (Phục vụ tìm kiếm)
 ---
 
 ## Biện Pháp Bảo Mật
