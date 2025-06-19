@@ -108,11 +108,6 @@
 
 ---
 
-## Liên Kết Công Khai
-[Chèn URL sau khi triển khai]
-
----
-
 ## Cải Tiến Tương Lai
 - Thêm tìm kiếm và lọc cho nước ngọt, khách hàng.
 - Phân quyền vai trò (admin, user).
