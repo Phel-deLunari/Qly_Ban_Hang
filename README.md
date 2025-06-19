@@ -1,70 +1,119 @@
-Ứng Dụng Quản Lý Bán Nước Ngọt - Laravel
-Tổng quan
-Đây là một ứng dụng web được xây dựng bằng framework Laravel để quản lý cửa hàng bán nước ngọt. Ứng dụng bao gồm các chức năng xác thực người dùng, quản lý các đối tượng như Nước Ngọt (Drink), Khách Hàng (Customer), và Đơn Hàng (Order), cùng với các thao tác CRUD an toàn và API RESTful. Ứng dụng sử dụng Laravel Breeze cho xác thực, Laravel Sanctum cho xác thực API, và Eloquent ORM để quản lý cơ sở dữ liệu trên cloud (ví dụ: Aiven MySQL/PostgreSQL).
-Tính năng
+# Ứng Dụng Quản Lý Bán Nước Ngọt - Laravel
 
-Xác thực người dùng: Hỗ trợ đăng ký, đăng nhập, đăng xuất và đặt lại mật khẩu thông qua Laravel Breeze.
-Các đối tượng:
-Nước Ngọt (Drink): Quản lý thông tin nước ngọt (tên, giá, mô tả).
-Khách Hàng (Customer): Quản lý thông tin khách hàng (tên, email, số điện thoại).
-Đơn Hàng (Order): Quản lý đơn hàng (nước ngọt, khách hàng, số lượng).
+## Tổng Quan
+Ứng dụng web này được xây dựng bằng framework **Laravel** để quản lý cửa hàng bán nước ngọt. Ứng dụng hỗ trợ xác thực người dùng, quản lý các đối tượng như *Nước Ngọt*, *Khách Hàng* và *Đơn Hàng*, cùng với các thao tác CRUD an toàn và API RESTful. Công nghệ chính bao gồm:
+- **Laravel Breeze**: Xác thực người dùng.
+- **Laravel Sanctum**: Xác thực API.
+- **Eloquent ORM**: Quản lý cơ sở dữ liệu trên cloud (ví dụ: Aiven).
 
+---
 
-Thao tác CRUD: Hỗ trợ đầy đủ các thao tác tạo, đọc, cập nhật, xóa cho Đơn Hàng.
-API: Cung cấp các endpoint API RESTful cho quản lý Đơn Hàng, sử dụng Laravel Sanctum.
-Bảo mật:
-Bảo vệ CSRF cho các biểu mẫu.
-Ngăn chặn XSS bằng cách sử dụng Blade và vệ sinh dữ liệu đầu vào.
-Xác thực dữ liệu đầu vào (validation).
-Xác thực và phân quyền thông qua middleware.
-Quản lý phiên (session) và cookie an toàn.
-Truy vấn SQL an toàn với Eloquent ORM.
+## Tính Năng
+1. **Xác Thực Người Dùng**:
+   - Đăng ký, đăng nhập, đăng xuất, đặt lại mật khẩu.
+2. **Các Đối Tượng**:
+   - **Nước Ngọt**: Quản lý tên, giá, mô tả.
+   - **Khách Hàng**: Quản lý tên, email, số điện thoại.
+   - **Đơn Hàng**: Liên kết giữa nước ngọt và khách hàng (số lượng).
+3. **Thao Tác CRUD**:
+   - Tạo, đọc, cập nhật, xóa đơn hàng.
+4. **API**:
+   - Cung cấp endpoint RESTful cho quản lý đơn hàng.
+5. **Bảo Mật**:
+   - Chống CSRF cho biểu mẫu.
+   - Ngăn chặn XSS qua Blade và vệ sinh dữ liệu.
+   - Xác thực dữ liệu đầu vào.
+   - Phân quyền qua middleware.
+   - Phiên và cookie an toàn.
+   - Truy vấn SQL an toàn với Eloquent.
+6. **Cơ Sở Dữ Liệu**:
+   - Migrate dữ liệu lên cloud (Aiven MySQL/PostgreSQL).
+7. **Liên Kết Công Khai**:
+   - [Chèn URL sau khi triển khai]
 
+---
 
-Cơ sở dữ liệu: Sử dụng Eloquent ORM để migrate các đối tượng vào cơ sở dữ liệu trên cloud (ví dụ: Aiven).
-Liên kết công khai: [Chèn URL công khai của ứng dụng sau khi triển khai]
+## Yêu Cầu
+- PHP >= 8.1
+- Composer
+- Laravel >= 10.x
+- MySQL/PostgreSQL (Aiven hoặc dịch vụ cloud)
+- Laravel Breeze
+- Laravel Sanctum
+- Node.js và NPM
 
-Yêu cầu
+---
 
-PHP >= 8.1
-Composer
-Laravel >= 10.x
-MySQL/PostgreSQL (được cấu hình trên Aiven hoặc dịch vụ cloud tương tự)
-Laravel Breeze
-Laravel Sanctum
-Node.js và NPM (cho tài nguyên frontend)
+## Hướng Dẫn Cài Đặt
+1. **Sao chép mã nguồn**:
+   ```bash
+   git clone [repository-url]
+   cd myWebApp
+   ```
+2. **Cài đặt thư viện**:
+   ```bash
+   composer install
+   npm install
+   ```
+3. **Cấu hình môi trường**:
+   - Sao chép file `.env.example` thành `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+   - Cập nhật thông tin cơ sở dữ liệu Aiven:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=<aiven_host>
+   DB_PORT=<aiven_port>
+   DB_DATABASE=<aiven_database>
+   DB_USERNAME=<aiven_username>
+   DB_PASSWORD=<aiven_password>
+   ```
+4. **Tạo khóa ứng dụng**:
+   ```bash
+   php artisan key:generate
+   ```
+5. **Chạy migration**:
+   ```bash
+   php artisan migrate
+   ```
+6. **Biên dịch tài nguyên frontend**:
+   ```bash
+   npm run dev
+   ```
+7. **Khởi động server**:
+   ```bash
+   php artisan serve
+   ```
 
-Hướng dẫn cài đặt
+---
 
-Sao chép kho mã nguồn:git clone [repository-url]
-cd myWebApp
+## Sử Dụng API
+- **Endpoint**: `/api/orders` (GET, POST, PUT, DELETE).
+- **Xác thực**: Sử dụng token Sanctum.
+- Ví dụ yêu cầu:
+   ```bash
+   curl -H "Authorization: Bearer <token>" http://localhost:8000/api/orders
+   ```
 
+---
 
-Cài đặt thư viện:composer install
-npm install
+## Biện Pháp Bảo Mật
+- **CSRF**: Biểu mẫu có token CSRF.
+- **XSS**: Dữ liệu được vệ sinh qua Blade.
+- **Xác thực dữ liệu**: Kiểm tra đầu vào phía server.
+- **Phân quyền**: Middleware giới hạn truy cập.
+- **SQL Injection**: Eloquent đảm bảo truy vấn an toàn.
+- **Session/Cookies**: Phiên an toàn, cookie mã hóa.
 
+---
 
-Cấu hình môi trường:
-Sao chép file .env.example thành .env và cập nhật thông tin cơ sở dữ liệu Aiven.
+## Liên Kết Công Khai
+[Chèn URL sau khi triển khai]
 
-cp .env.example .env
+---
 
-
-Ví dụ cấu hình cơ sở dữ liệu:
-
-DB_CONNECTION=mysql
-DB_HOST=<aiven_host>
-DB_PORT=<aiven_port>
-DB_DATABASE=<aiven_database>
-DB_USERNAME=<aiven_username>
-DB_PASSWORD=<aiven_password>
-
-
-Tạo khóa ứng dụng:php artisan key:generate
-
-
-Chạy migration:php artisan migrate
-
-
-**Biên
-
+## Cải Tiến Tương Lai
+- Thêm tìm kiếm và lọc cho nước ngọt, khách hàng.
+- Phân quyền vai trò (admin, user).
+- Mở rộng API cho Nước Ngọt và Khách Hàng.
